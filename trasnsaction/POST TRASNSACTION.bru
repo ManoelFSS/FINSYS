@@ -1,0 +1,20 @@
+meta {
+  name: POST TRASNSACTION
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/trasnsactions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "aluguel",
+    "type": "pix",
+    "category": "casa",
+    "amount": 100
+  }
+}
