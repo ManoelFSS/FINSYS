@@ -1,16 +1,17 @@
-import { trasnsactionsRepositoryInMemory } from "../repositories/trasnsactionsRepositoryInMemory.js";
+import { TransactionsRepository } from '../repositories/trasnsactionsRepositoryInMemory.js';
 
 const criarTrasnsactionsUseCase = {
-    execute(data) {
-        const trasnsactionsRepository = new trasnsactionsRepositoryInMemory();
-    
-         // Cria a transação
-         const transaction = trasnsactionsRepository.create(data);
-        
-         // Retorna a transação criada
-         return transaction;
-       
+    async execute(data) {
+        const transactionsRepository = new TransactionsRepository();
+        try {
+            const transaction = await transactionsRepository.create(data);
+            return transaction;
+        } catch (error) {
+            console.error('Erro ao criar transação:', error);
+            throw error;
+        }
     }
-}
+};
 
 export { criarTrasnsactionsUseCase };
+

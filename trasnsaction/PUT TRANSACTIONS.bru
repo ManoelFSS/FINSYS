@@ -1,0 +1,24 @@
+meta {
+  name: PUT TRANSACTIONS
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/transactions/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 66abb66fd5f230ec8b14a8bc
+}
+
+body:json {
+  {
+    "title": "TABLET",
+    "type": "pix",
+    "category": "eletronicos",
+    "amount": 300
+  }
+}

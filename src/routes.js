@@ -1,20 +1,14 @@
-import { Router } from "express";
-import  { criarTrasnsactions } from "./controllers/criarTrasnsactions.js";
-import {listarTrasnsactions} from "./controllers/listarTrasnsactions.js"
+import { Router } from 'express';
+import { criarTrasnsactions } from './controllers/criarTrasnsactions.js';
+import { listarTrasnsactions } from './controllers/listarTrasnsactions.js';
+import { editTrasnsaction } from './controllers/editTrasnsactions.js';
+import { deleteTrasnsaction } from './controllers/deleteTrasnsactions.js';
 
 const routes = Router();
 
-routes.post('/trasnsactions', criarTrasnsactions );
-routes.get('/trasnsactions', listarTrasnsactions);
+routes.post('/transactions', criarTrasnsactions);
+routes.get('/transactions', listarTrasnsactions);
+routes.put('/transactions/:id', editTrasnsaction);
+routes.delete('/transactions/:id', deleteTrasnsaction);
 
-// routes.put('/trasnsactions/:id', (req, res) => {
-//     const { id } = req.params
-//     res.send(`atualizar a transação ${id}`)
-// })
-
-// routes.delete('/trasnsactions/:id', (req, res) => {
-//     const { id } = req.params
-//     res.send(`remover a transação ${id}`)
-// })
-
-export { routes }
+export { routes };
