@@ -36,11 +36,12 @@ class TransactionsRepository {
     async create(data) {
         
         const DATE = new Date();
-        const yers = DATE.getFullYear();
+        const year = DATE.getFullYear();
         const month = DATE.getMonth() + 1; // Mês começa em 1
         const day = DATE.getDate();
+        const dia = day < 10 ? '0' + day : day;
         
-        const Dataformatada = `${day}/${month}/${yers}`;
+        const Dataformatada = `${dia}/${month}/${year}`;
 
         const transaction = new Transaction({
             title: data.title,
@@ -58,7 +59,7 @@ class TransactionsRepository {
 
 
      // Encontra todas as transações
-     async findAll() {
+    async findAll() {
         return await Transaction.find();
     }
 
